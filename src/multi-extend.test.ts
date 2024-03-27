@@ -6,6 +6,7 @@ import {
     assertTypeOf,
 } from 'run-time-assertions';
 import {Constructor} from 'type-fest';
+import {ListenTarget} from 'typed-event-target';
 import {
     AllConstructorParameters,
     MultiExtended,
@@ -45,6 +46,14 @@ describe('AllConstructorParameters', () => {
 });
 
 describe(multiExtend.name, () => {
+    it('works with double inheritance', () => {
+        class ChildClass extends ListenTarget<Event> {}
+
+        class GrandchildClass extends multiExtend(ChildClass) {}
+
+        new GrandchildClass();
+    });
+
     class ParentClass {
         static superThing = 'some string';
         constructor(public instanceMember: number) {}
