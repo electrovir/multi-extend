@@ -112,7 +112,15 @@ describe(multiExtend.name, () => {
             public override myMethod() {
                 return 1;
             }
+
+            /** Unfortunately you need to use arrow functions to override methods. */
+            // @ts-expect-error
+            public override myMethod2() {
+                return 'hi 555';
+            }
         }
+
+        assert.strictEqual(new ChildClass().myMethod2(), 'hi 555');
     });
 
     class ParentClass {
