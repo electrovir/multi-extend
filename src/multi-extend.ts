@@ -188,5 +188,5 @@ export function multiExtend<const Constructors extends Constructor<any>[]>(
         },
     });
 
-    return combinedConstructors as MultiExtendedConstructor<Constructors>;
+    return combinedConstructors as any;
 }

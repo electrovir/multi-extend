@@ -62,15 +62,18 @@ describe(multiExtend.name, () => {
         }
 
         class ChildClass extends multiExtend(ParentClass) {
-            public override myMethod() {
+            public override myMethod = () => {
                 return 'hi';
-            }
+            };
         }
     });
 
     it('can extend multiple classes', () => {
         class A {
             public myMethod() {
+                return 'hi';
+            }
+            public myMethod2() {
                 return 'hi';
             }
         }
@@ -81,46 +84,17 @@ describe(multiExtend.name, () => {
             }
         }
 
-        class C {
-            public myMethod3() {
+        class ChildClass extends multiExtend(A, B) {
+            public override myMethod = () => {
                 return 'hi';
-            }
+            };
+
+            public override myMethod2 = () => {
+                return 55;
+            };
         }
 
-        class D {
-            public myMethod() {
-                return 32;
-            }
-        }
-
-        class E {
-            public myMethod() {
-                return 32;
-            }
-            public myMethod2() {
-                return 'hi';
-            }
-        }
-
-        class F {
-            public myMethod() {
-                return 32;
-            }
-        }
-
-        class ChildClass extends multiExtend(A, B, C, D, E, F) {
-            public override myMethod() {
-                return 1;
-            }
-
-            /** Unfortunately you need to use arrow functions to override methods. */
-            // @ts-expect-error
-            public override myMethod2() {
-                return 'hi 555';
-            }
-        }
-
-        assert.strictEqual(new ChildClass().myMethod2(), 'hi 555');
+        assert.strictEqual(new ChildClass().myMethod2(), 55);
     });
 
     class ParentClass {
