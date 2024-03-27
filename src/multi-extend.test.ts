@@ -54,6 +54,67 @@ describe(multiExtend.name, () => {
         new GrandchildClass();
     });
 
+    it('supports method overrides', () => {
+        class ParentClass {
+            public myMethod() {
+                return 'hi';
+            }
+        }
+
+        class ChildClass extends multiExtend(ParentClass) {
+            public override myMethod() {
+                return 'hi';
+            }
+        }
+    });
+
+    it('can extend multiple classes', () => {
+        class A {
+            public myMethod() {
+                return 'hi';
+            }
+        }
+
+        class B {
+            public myMethod2() {
+                return 32;
+            }
+        }
+
+        class C {
+            public myMethod3() {
+                return 'hi';
+            }
+        }
+
+        class D {
+            public myMethod() {
+                return 32;
+            }
+        }
+
+        class E {
+            public myMethod() {
+                return 32;
+            }
+            public myMethod2() {
+                return 'hi';
+            }
+        }
+
+        class F {
+            public myMethod() {
+                return 32;
+            }
+        }
+
+        class ChildClass extends multiExtend(A, B, C, D, E, F) {
+            public override myMethod() {
+                return 1;
+            }
+        }
+    });
+
     class ParentClass {
         static superThing = 'some string';
         constructor(public instanceMember: number) {}

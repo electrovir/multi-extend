@@ -1,6 +1,6 @@
 {
     "name": "multi-extend",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "A utility for extending multiple classes in JavasScript, enabling the creation of mixins.",
     "keywords": [
         "extends",
