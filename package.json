@@ -2,7 +2,13 @@
     "name": "multi-extend",
     "version": "1.0.0",
     "description": "A utility for extending multiple classes in JavasScript, enabling the creation of mixins.",
-    "keywords": [],
+    "keywords": [
+        "extends",
+        "mixin",
+        "multiple",
+        "object oriented",
+        "oop"
+    ],
     "homepage": "https://github.com/electrovir/multi-extend",
     "bugs": {
         "url": "https://github.com/electrovir/multi-extend/issues"
