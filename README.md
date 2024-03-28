@@ -1,5 +1,7 @@
 # multi-extend
 
+**Warning: this package has severe limitations and countless failure edge cases due to how the JS class system works.**
+
 A utility for extending multiple classes in JavasScript, enabling the creation of mixins.
 
 docs: https://electrovir.github.io/multi-extend/functions/multiExtend.html
